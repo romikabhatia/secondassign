@@ -5,8 +5,11 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', {
     title: 'Assignment2',
-  message:'mongodb'});
+  message:'mongodb'
+  });
 });
+
+
 
 
 module.exports = router;
