@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+// add a reference to the new dress controller
 
 var app = express();
 // use mongoose to connect to the mongo
@@ -28,6 +29,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+// use the dress controller to tell the application
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
