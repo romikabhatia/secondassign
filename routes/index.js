@@ -15,6 +15,13 @@ router.get('/trending', function(req, res, next) {
     aboutInfo: 'someInfo'
   });
 });
+/* GET trending page. */
+router.get('/sale', function(req, res, next) {
+  res.render('sale', {
+    title: 'Sale',
+    aboutInfo: 'someInfo'
+  });
+});
 
 
 
