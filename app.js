@@ -11,6 +11,8 @@ var users = require('./routes/users');
 var app = express();
 // use mongoose to connect to the mongo
 var mongoose = require('mongoose');
+var config = require('./config/globalvars');
+mongoose.connect(config.db);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

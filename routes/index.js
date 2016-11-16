@@ -8,7 +8,13 @@ router.get('/', function(req, res, next) {
   message:'mongodb'
   });
 });
-
+/* GET trending page. */
+router.get('/trending', function(req, res, next) {
+  res.render('trending', {
+    title: 'Trending',
+    aboutInfo: 'someInfo'
+  });
+});
 
 
 
