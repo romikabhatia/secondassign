@@ -1,0 +1,23 @@
+<% include partials/header.ejs %>
+
+<h1><%= title %></h1>
+<a href="/dynamites/add">Add dresses</a>
+<table class="table table-striped">
+    <tr>
+        <th>Dress Name</th>
+        <th>Types</th>
+        <th>Size</th>
+        <th>Price</th>
+    </tr>
+    <% for (var i=0; i < dynamites.length; i++) { %>
+    <tr>
+        <td><%= dynamites[i].dressName %></td>
+        <td><%= dynamites[i].type %></td>
+        <td><%= dynamites[i].size %></td>
+        <td><%= dynamites[i].price %></td>
+        <td><a href="/dynamites/<%= dynamites[i]._id%>">Edit</a> </td>
+        <td><a href="/dynamites/delete/<%= dynamites[i]._id%>" class="confirmation">Delete</a> </td>
+    </tr>
+    <% } %>
+</table>
+<% include partials/footer.ejs %>
