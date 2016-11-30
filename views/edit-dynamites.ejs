@@ -1,0 +1,28 @@
+<% include partials/header.ejs %>
+
+<h1>Dresses</h1>
+
+<% include partials/header.ejs %>
+
+<h1>Dresses</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="dressName" class="col-sm-2 control-label">dressName:</label>
+        <input name="dressName" id="dressName" required  />
+    </div>
+    <div class="form-group">
+        <label for="type" class="col-sm-2 control-label">type:</label>
+        <input name="type" id="type"  />
+    </div>
+    <div class="form-group">
+        <label for="size" class="col-sm-2 control-label">size:</label>
+        <input name="size" id="size" required />
+    </div>
+    <div class="form-group">
+        <label for="price" class="col-sm-2 control-label">price:</label>
+        <input name="price" id="price" required type="number" min="20" />
+    </div>
+    <button class="btn btn-success col-sm-offset-2">Save</button>
+</form>
+<% include partials/footer.ejs %>

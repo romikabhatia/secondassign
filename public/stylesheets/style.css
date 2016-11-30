@@ -1,8 +1,23 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/* style for header.ejs **/
+h1.name{
+  font-family: Arial;
+  font-size: 120px;
 }
 
-a {
-  color: #00B7FF;
+textarea{
+  width:350px;
+  height:150px;
+  max-width: 400px;
+  line-height: 19px;
 }
+
+/**  Style fir the footer.ejs **/
+.footer-container {
+  height: auto;
+  background-color: rgba(240, 233, 236, 0.66);
+}
+
+
+
+
+

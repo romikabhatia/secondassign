@@ -16,6 +16,35 @@ var mongoose = require('mongoose');
 var config = require('./config/globalvars');
 mongoose.connect(config.db);
 
+// passport configuration for authentication
+var passport = require('passport');
+var session = require('express-session');
+var flash = require('connect-flash');
+var localStrategy = require('passport-local').Strategy;
+
+// enable the app to use these passport classes
+app.use(flash());
+
+// configure sessions
+app.use(session( {
+  secret: config.secret,
+  resave: true,
+  saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+// connect passport to the Account model to talk to mongodb
+var Account = require('./models/account');
+passport.use(Account.createStrategy());
+
+
+// manage sessions through the db
+passport.serializeUser(Account.serializeUser());
+passport.deserializeUser(Account.deserializeUser());
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
