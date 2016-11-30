@@ -13,8 +13,6 @@ function isLoggedIn(req,res,next){
     }
 }
 
-
-
 // get handler for dynamites
 router.get('/', isLoggedIn, function(req, res, next) {
 
@@ -100,7 +98,6 @@ router.get('/:_id',isLoggedIn, function(req,res,next){
 // save
 router.post('/:_id', isLoggedIn, function(req,res,next) {
     var _id = req.params._id;
-
     var dynamite = new Dynamite({
         _id: _id,
         dressName: req.body.dressName,
