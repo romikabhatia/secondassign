@@ -65,8 +65,8 @@ Dynamite.create({
 });
 
 // delete
-router.get('/delete/:id',isLoggedIn, function(req,res,next){
-    var_id = req.params._id;
+router.get('/delete/:_id',isLoggedIn, function(req,res,next){
+    var _id = req.params._id;
 
     // use mongoose to remove the dynamite
     Dynamite.remove( {_id: _id }, function(err){
@@ -79,11 +79,11 @@ router.get('/delete/:id',isLoggedIn, function(req,res,next){
 });
 
 // edit form
-router.get('/:_id', function(req,res,next){
-    var_id = req.params._id;
+router.get('/:_id',isLoggedIn, function(req,res,next){
+    var _id = req.params._id;
 
     Dynamite.findById(_id, function(err, dynamite){
-        if (error){
+        if (err){
             console.log(err);
             res.render('error', {message: 'dynamite not found'});
         }
@@ -91,14 +91,15 @@ router.get('/:_id', function(req,res,next){
             // edit form load
             res.render('edit-dynamite',{
                 title: 'Edit Dynamite',
-                dynamite: dynamite
+                dynamite: dynamite,
+                user: req.user
             });
         }
     });
 });
 // save
-router.post('/:_id', function(req,res,next) {
-    var_id = req.params._id;
+router.post('/:_id', isLoggedIn, function(req,res,next) {
+    var _id = req.params._id;
 
     var dynamite = new Dynamite({
         _id: _id,

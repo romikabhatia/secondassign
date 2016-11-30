@@ -14,14 +14,7 @@ router.get('/', function(req, res, next) {
   });
 });
 
-/* GET sale page. */
-router.get('/', function(req, res, next) {
-  res.render('sale', {
-    title: 'Assignment2',
-    message:'mongodb',
-    user: req.user
-  });
-});
+
 
 /* GET register page */
 router.get('/register', function(req, res, next) {

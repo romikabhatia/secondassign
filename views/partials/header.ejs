@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    <title><%= title %></title>
+    <title>DRESSES</title>
     <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
     <link rel="stylesheet" href="/stylesheets/bootstrap-theme.min.css" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
@@ -42,8 +42,12 @@
         else { %>
         <li><a href="/register">Register</a></li>
         <li><a href="/login">Login</a></li>
-        <li><a hrfe="/sale">Sale</a></li>
+
         <% } %>
     </ul>
+        <%if (user) { %>
+        <div></div>
+        welcome <%= user.username %>
         </div>
+    <% } %>
 </nav>

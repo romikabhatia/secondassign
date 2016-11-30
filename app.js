@@ -40,8 +40,7 @@ var Account = require('./models/account');
 passport.use(Account.createStrategy());
 
 
-
-// manage sessions through the db
+    // manage sessions through the db
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
