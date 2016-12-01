@@ -87,8 +87,8 @@ router.get('/:_id',isLoggedIn, function(req,res,next){
         }
         else{
             // edit form load
-            res.render('edit-dynamite',{
-                title: 'Edit Dynamite',
+            res.render('edit-dynamites',{
+                title: 'Edit Dynamites',
                 dynamite: dynamite,
                 user: req.user
             });
