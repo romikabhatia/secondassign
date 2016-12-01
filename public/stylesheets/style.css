@@ -1,5 +1,11 @@
 /* style for header.ejs **/
 
+/**
+File Name: style.css
+Author: Romika Bhatia
+Link: https://assignmentt2.herokuapp.com/register
+
+**/
 body
 {
   padding: 5px;
@@ -7,6 +13,10 @@ body
   font-style: normal;
   height: 100%;
 }
+body{
+  background-color: lightgrey;
+}
+
 h1.name{
   font-family: Arial;
   font-size: 120px;
@@ -23,6 +33,15 @@ textarea{
 .footer-container {
   height: auto;
   background-color: rgba(240, 233, 236, 0.66);
+}
+
+/** style for footer.ejs **/
+.footer-container{
+  height: 57px;
+  background-color: rgba(240, 232, 232, 0.66);
+  background: -webkit-linear-gradient(top, rgba(173, 173, 173, 1) 0%, rgba(240, 232, 232, 0.66) 100%);
+  background: linear-gradient(to bottom, rgba(173, 173, 173, 1) 0%, rgba(240, 232, 232, 0.66) 100%);
+
 }
 
 

@@ -22,6 +22,7 @@ var session = require('express-session');
 var flash = require('connect-flash');
 var localStrategy = require('passport-local').Strategy;
 
+
 // enable the app to use these passport classes
 app.use(flash());
 
@@ -38,6 +39,50 @@ app.use(passport.session());
 // connect passport to the Account model to talk to mongodb
 var Account = require('./models/account');
 passport.use(Account.createStrategy());
+
+
+
+// github auth configuration
+var githubStrategy = require('passport-github').Strategy;
+
+passport.use(new githubStrategy({
+      clientID: config.ids.github.clientID,
+      clientSecret: config.ids.github.clientSecret,
+      callbackURL: config.ids.github.callbackURL
+    },
+    function(accessToken, refreshToken, profile, cb)
+    {
+      // check if mongodb already has this user
+      Account.findOne({ oauthID: profile.id }, function(err, user) {
+        if (err) {
+          console.log(err);
+        }
+        else {
+          if (user !== null) {
+            // this user has already registered via github
+            cb(null, user);
+          }
+          else {
+            // user is new to us, so save them to accounts collection
+            user = new Account({
+              oauthID: profile.id,
+              username: profile.username,
+              created: Date.now()
+            });
+
+            user.save(function(err) {
+              if (err) {
+                console.log(err);
+              }
+              else {
+                cb(null, user);
+              }
+            });
+          }
+        }
+      });
+    }));
+
 
 
 // manage sessions through the db

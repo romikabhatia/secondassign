@@ -28,20 +28,21 @@
             <a class="navbar-brand" href="/"><i class="fa fa-home"></i>
             </a>
         </div>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
 
 
     <ul class="nav navbar-nav navbar-right">
         <li class = "active"><a href="/">Home</a></li>
         <% if (user) { %>
-        <li><a href="/dynamites">Dynamites</a></li>
-        <li><a href="/logout">Logout</a></li>
+        <li class="active"><a href="/dynamites">Dynamites</a></li>
+        <li class="active"><a href="/logout">Logout</a></li>
         <ul class="navbar-text navbar-right">
             <li>Signed in as <%= user.username %></li>
         </ul>
         <% }
         else { %>
-        <li><a href="/register">Register</a></li>
-        <li><a href="/login">Login</a></li>
+        <li class = "active"><a href="/register">Register</a></li>
+        <li class="active"><a href="/login">Login</a></li>
 
         <% } %>
     </ul>

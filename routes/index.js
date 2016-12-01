@@ -90,7 +90,7 @@ router.get('/facebook', passport.authenticate('facebook'),
     });
 
 /* GET /facebook/callback */
-router.get('/facebook/callback', passport.authenticate('facebook', {
+router.get('/facebook', passport.authenticate('facebook', {
   failureRedirect: '/login',
   failureMessage: 'Invalid Login'
 }), function(req, res, next) {
@@ -98,5 +98,13 @@ router.get('/facebook/callback', passport.authenticate('facebook', {
   res.redirect('/dynamites');
 });
 
+router.get('/github/callback', passport.authenticate('github', {
+  failureRedirect: '/login',
+  failureMessage: 'Invalid Login'
+}), function(req, res, next) {
+
+  // show the dynamites page
+  res.redirect('/dynamites');
+});
 
 module.exports = router;
